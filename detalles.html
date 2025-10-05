@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Análisis - BloomWatch</title>
+    <link rel="stylesheet" href="Diseño.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="index.html" style="text-decoration: none; color: var(--primary-green);">BloomWatch</a></h1>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#info">Aprende</a></li>
+                <li><a href="index.html#mapa">Mapa Interactivo</a></li>
+                <li><a href="historial.html">Historial</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-section">
+            <h2>Detalles del Terreno</h2>
+            <div class="card" id="details-card">
+                <div id="details-card-content">
+                    <h3 id="details-date">Resultados del...</h3>
+                    <p><strong>Área Analizada:</strong> <span id="details-area"></span> hectáreas</p>
+                    <p><strong>Tipo de Flora:</strong> <span id="details-crop-type">Cargando...</span></p>
+                    <p><strong>Índice de Vegetación (NDVI):</strong> <span id="details-ndvi"></span></p>
+                    <p><strong>Índice de Agua (NDWI):</strong> <span id="details-ndwi"></span></p>
+                    <p><strong>Índice de Estrés (NDRE):</strong> <span id="details-ndre"></span></p>
+                    <p><strong>Cobertura de Nubes:</strong> <span id="details-clouds"></span>%</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="indicesChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Desarrollado por participantes de INTECAP CSL 2025.</p>
+    </footer>
+
+    <script src="detalles.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/get-sentinel-token",
+      "destination": "/api/get-sentinel-token.js"
+    }
+  ]
+}

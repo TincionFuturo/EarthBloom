@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <br>
+    <br>
+    <title>Historial de Análisis - BloomWatch</title>
+    <link rel="stylesheet" href="Diseño.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>BloomWatch</h1>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#aprende">Aprende</a></li>
+                <li><a href="index.html#mapa">Mapa Interactivo</a></li>
+                <li><a href="historial.html">Historial</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="historial">
+            <h2>Historial de Consultas</h2>
+            <div id="compare-controls" style="text-align: center; margin-bottom: 2rem;">
+                <button id="compare-btn" class="cta-button" disabled>Comparar Seleccionados (0/2)</button>
+                <button id="export-csv-btn" class="cta-button secondary">Exportar a CSV</button>
+            </div>
+            <div id="history-list">
+                <!-- El historial se cargará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desarrollado por participantes de INTECAP CSL 2025.</p>
+    </footer>
+
+    <script src="historial.js"></script>
+
+    <!-- --- CÓDIGO DEL CHATBOT --- -->
+    <script src="//code.tidio.co/axvzqlpkh1fwivecrzpsvzr0hwktpjit.js" async></script>
+    <!-- --- FIN DEL CÓDIGO DEL CHATBOT --- -->
+</body>
+</html>
