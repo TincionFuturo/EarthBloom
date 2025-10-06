@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Obtener el ID del análisis actual que guardamos en Funciones.js
+   
     const currentAnalysisId = localStorage.getItem('currentAnalysisId');
     const history = JSON.parse(localStorage.getItem('analysisHistory')) || [];
 
-    // 2. Buscar el paquete de análisis completo en el historial usando el ID
+  
     const analysisData = history.find(item => item.id === currentAnalysisId);
 
     const detailsContent = document.getElementById('details-card-content');
@@ -20,18 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 3. Extraer el último dato de la serie para la tarjeta de detalles
+
     const ndviSeries = analysisData.indices.ndvi;
     const ndwiSeries = analysisData.indices.ndwi;
     const ndreSeries = analysisData.indices.ndre;
-    const cloudSeries = analysisData.indices.cloudCoverage; // Obtenemos la serie de nubes
+    const cloudSeries = analysisData.indices.cloudCoverage; 
 
-    // Asegurarnos de que hay datos antes de intentar acceder a ellos
+
     if (ndviSeries.length > 0) {
         const lastNdviEntry = ndviSeries[ndviSeries.length - 1];
         const lastNdwiEntry = ndwiSeries[ndwiSeries.length - 1];
         const lastNdreEntry = ndreSeries[ndreSeries.length - 1];
-        const lastCloudEntry = cloudSeries[cloudSeries.length - 1]; // Último dato de nubes
+        const lastCloudEntry = cloudSeries[cloudSeries.length - 1]; 
 
         detailsContent.innerHTML = `
             <h3>Resultados del ${lastNdviEntry.date}</h3>
@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // 4. Preparar los datos para el gráfico (toda la serie temporal)
+    
     const chartLabels = ndviSeries.map(entry => entry.date);
     const chartNdviData = ndviSeries.map(entry => entry.value);
     const chartNdwiData = ndwiSeries.map(entry => entry.value);
     const chartNdreData = ndreSeries.map(entry => entry.value);
-    const chartCloudData = cloudSeries.map(entry => entry.value); // Datos de nubes para el gráfico
+    const chartCloudData = cloudSeries.map(entry => entry.value); 
 
-    // Configurar el gráfico
+    
     if (chartContainer) {
         const ctx = chartContainer.getContext('2d');
         new Chart(ctx, {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         borderColor: 'rgba(75, 192, 192, 1)',
                         fill: false,
                         tension: 0.1,
-                        yAxisID: 'y', // Asignar al eje Y principal
+                        yAxisID: 'y',
                     },
                     {
                         label: 'NDWI',
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         borderColor: 'rgba(54, 162, 235, 1)',
                         fill: false,
                         tension: 0.1,
-                        yAxisID: 'y', // Asignar al eje Y principal
+                        yAxisID: 'y', 
                     },
                     {
                         label: 'NDRE',
@@ -86,16 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         borderColor: 'rgba(255, 206, 86, 1)',
                         fill: false,
                         tension: 0.1,
-                        yAxisID: 'y', // Asignar al eje Y principal
+                        yAxisID: 'y',
                     },
                     {
-                        label: 'Nubes (%)', // Nueva serie en el gráfico
+                        label: 'Nubes (%)', 
                         data: chartCloudData,
                         borderColor: 'rgba(153, 102, 255, 1)',
                         backgroundColor: 'rgba(153, 102, 255, 0.2)',
                         fill: false,
                         tension: 0.1,
-                        yAxisID: 'y1' // Asignamos esta serie a un segundo eje Y
+                        yAxisID: 'y1' 
                     }
                 ]
             },
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: { display: true, text: 'Evolución de Índices y Nubes en el Tiempo' }
                 },
                 scales: {
-                    y: { // Eje Y principal para los índices (-1 a 1)
+                    y: { 
                         type: 'linear',
                         display: true,
                         position: 'left',
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             text: 'Valor del Índice'
                         }
                     },
-                    y1: { // Eje Y secundario para las nubes (0 a 100)
+                    y1: { 
                         type: 'linear',
                         display: true,
                         position: 'right',
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             display: true,
                             text: 'Nubes (%)'
                         },
-                        // Para que la cuadrícula no se superponga
+                        
                         grid: {
                             drawOnChartArea: false, 
                         },
@@ -137,12 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón para volver al mapa
+    
     if (backButton) {
         backButton.addEventListener('click', () => {
-            // Guardamos la geometría para que el mapa pueda mostrarla al volver
+            
             localStorage.setItem('revisitLocation', JSON.stringify(analysisData.geometry));
             window.location.href = 'index.html#mapa';
         });
     }
+
 });
