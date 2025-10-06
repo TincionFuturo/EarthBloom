@@ -1,12 +1,7 @@
-// Motor de comunicación con Sentinel Hub (cliente)
 
-//
-// IMPORTANTE
-// - Reemplaza TU_INSTANCE_ID por el ID real de tu instancia (Dashboard > Configuration instances).
-//
 const sentinelHubInstanceId = "TU_INSTANCE_ID";
 
-// Evalscript para índices con Sentinel-2 L2A
+
 const EVALSCRIPT_INDICES = `//VERSION=3
 function setup() {
   return {
@@ -28,7 +23,7 @@ function evaluatePixel(s) {
 }
 `;
 
-// Evalscript para ESA WorldCover (devuelve el código de clase por píxel)
+
 const LULC_EVALSCRIPT = `//VERSION=3
 function setup() {
   return {
@@ -43,8 +38,7 @@ function evaluatePixel(s) {
 }
 `;
 
-// Obtiene token desde la Function de Netlify.
-// Intentamos ambos paths por compatibilidad: /.netlify/functions y /api
+
 let cachedToken = null;
 async function getAuthToken() {
   if (cachedToken) return cachedToken;
@@ -69,7 +63,7 @@ async function getAuthToken() {
   throw lastErr || new Error("No se pudo obtener token");
 }
 
-// Llama a la API de Statistics para índices (S2 L2A)
+
 async function getSatelliteData(token, geojson) {
   const today = new Date();
   const from = new Date(today);
@@ -108,8 +102,9 @@ async function getSatelliteData(token, geojson) {
   return res.json();
 }
 
-// Exportar al scope global para que Funciones.js lo use
+
 window.sentinelHubInstanceId = sentinelHubInstanceId;
 window.getAuthToken = getAuthToken;
 window.getSatelliteData = getSatelliteData;
+
 window.LULC_EVALSCRIPT = LULC_EVALSCRIPT;
