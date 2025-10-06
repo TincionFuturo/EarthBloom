@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
   map.addControl(drawControl);
   loadSavedShapes();
 
-  // --- LÓGICA DE LA LÍNEA DE TIEMPO ---
+  
   const timelineSlider = document.getElementById('timeline-slider');
   const timelineYear = document.getElementById('timeline-year');
 
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateNDVILayer(timelineSlider.value);
   }
 
-  // --- DIBUJO Y ANÁLISIS ---
+  
   map.on(L.Draw.Event.CREATED, async function (event) {
     const layer = event.layer;
     const type = event.layerType;
@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Land cover con ESA WorldCover (colección oficial). Corrige el 400 “Invalid collection type”.
+  
   async function getLandCoverData(authToken, geojson) {
     if (typeof LULC_EVALSCRIPT === 'undefined') {
       console.warn("LULC_EVALSCRIPT no está definido. Saltando clasificación de terreno.");
       return null;
     }
 
-    // Usaremos 2021 (última versión estable). Puedes cambiar a 2020 si lo prefieres.
+    
     const from = "2021-01-01T00:00:00Z";
     const to   = "2021-12-31T23:59:59Z";
 
@@ -158,8 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       aggregation: {
         evalscript: LULC_EVALSCRIPT,
-        // No necesitamos aggregationInterval para un producto no temporal,
-        // pero lo dejamos simple: el API generará histograma de la banda.
+
       }
     };
 
@@ -174,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
       throw new Error(`Error en API de clasificación: ${errorText}`);
     }
     const stats = await response.json();
-    // histograma de códigos de clase
+   
     return stats.data?.[0]?.outputs?.default?.bands?.B0?.stats?.histogram?.bins || [];
   }
 
@@ -183,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const analysisDate = new Date().toISOString();
     const ndviSeries = [], ndwiSeries = [], ndreSeries = [], cloudCoverageSeries = [];
 
-    // Mapa de clases ESA WorldCover
+   
     const landCoverMap = {
       10: "Cobertura arbórea",
       20: "Matorral",
@@ -201,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let dominantCover = "No disponible";
     if (Array.isArray(landCoverBins) && landCoverBins.length > 0) {
       const dominantBin = landCoverBins.reduce((prev, cur) => (prev.count > cur.count ? prev : cur));
-      // En WorldCover los bins pueden venir como {low:code, high:code+...}
+      
       const code = Math.round(dominantBin.low);
       dominantCover = landCoverMap[code] || `Clase ${code}`;
     }
@@ -309,3 +308,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
