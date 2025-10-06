@@ -1,4 +1,4 @@
-//noseeeeeeeeeeeeeeeee
+//quipo te fusiono
 const sentinelHubInstanceId = "TU_INSTANCE_ID";
 
 
@@ -108,4 +108,5 @@ window.getAuthToken = getAuthToken;
 window.getSatelliteData = getSatelliteData;
 
 window.LULC_EVALSCRIPT = LULC_EVALSCRIPT;
+
 
