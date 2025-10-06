@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadHistory() {
         const analysisHistory = JSON.parse(localStorage.getItem('analysisHistory')) || [];
-        historyList.innerHTML = ''; // Limpiar lista
+        historyList.innerHTML = '';
 
         if (analysisHistory.length === 0) {
             emptyMsg.style.display = 'block';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             emptyMsg.style.display = 'none';
             exportBtn.disabled = false;
-            // Mostrar del más reciente al más antiguo
+       
             analysisHistory.reverse().forEach(item => {
                 const card = createHistoryCard(item);
                 historyList.appendChild(card);
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Event Listeners para los botones de la tarjeta
+      
         card.querySelector('.btn-details').addEventListener('click', () => viewDetails(item.id));
         card.querySelector('.btn-revisit').addEventListener('click', () => revisitOnMap(item.geometry));
         card.querySelector('.btn-delete').addEventListener('click', () => deleteItem(item.id));
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectedForComparison.push(itemId);
                 document.querySelector(`[data-id="${itemId}"]`).classList.add('selected');
             } else {
-                event.target.checked = false; // No permitir más de 2
+                event.target.checked = false; 
                 alert('Solo puedes comparar 2 análisis a la vez.');
             }
         } else {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let history = JSON.parse(localStorage.getItem('analysisHistory')) || [];
             history = history.filter(item => item.id !== itemId);
             localStorage.setItem('analysisHistory', JSON.stringify(history));
-            loadHistory(); // Recargar la lista
+            loadHistory(); 
         }
     }
     
@@ -140,4 +140,5 @@ document.addEventListener('DOMContentLoaded', () => {
     exportBtn.addEventListener('click', exportToCSV);
 
     loadHistory();
+
 });
