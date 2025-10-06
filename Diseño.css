@@ -23,13 +23,13 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: var(--text-light); /* Color de texto claro para toda la web */
-    background: var(--bg-dark-2); /* Fondo oscuro base para todas las páginas */
+    color: var(--text-light); 
+    background: var(--bg-dark-2); /
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     overflow-x: hidden;
 }
 
-/* --- Fondo de Estrellas (Solo para la página principal) --- */
+
 .background-container {
     position: fixed;
     top: 0;
@@ -37,7 +37,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background-color: #000; /* Fondo negro para el contenedor de estrellas */
+    background-color: #000; 
 }
 
 .stars {
@@ -74,7 +74,7 @@ body {
     z-index: 2;
 }
 
-/* --- Header y Navegación --- */
+
 header {
     position: fixed;
     top: 0;
@@ -105,7 +105,7 @@ nav h1 {
 
 nav ul { list-style: none; display: flex; gap: 2rem; }
 
-/* --- INICIO: ANIMACIÓN DE ENLACES --- */
+
 nav a { 
     position: relative;
     text-decoration: none; 
@@ -131,9 +131,7 @@ nav a::after {
 nav a:hover::after {
     transform: scaleX(1);
 }
-/* --- FIN: ANIMACIÓN DE ENLACES --- */
 
-/* --- Contenido Principal y Secciones --- */
 main {
     position: relative;
     z-index: 1;
@@ -145,7 +143,7 @@ section {
     padding: 3rem 2rem;
 }
 
-/* --- Escena de Inicio Renovada --- */
+
 #inicio {
     min-height: 100vh;
     display: flex;
@@ -267,7 +265,7 @@ section {
     to { transform: rotate(-360deg); }
 }
 
-/* --- Estilos de Tarjetas (Glassmorphism) --- */
+
 .card, .chart-container, .history-item {
     background: var(--glass-bg);
     backdrop-filter: blur(5px);
@@ -278,7 +276,7 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- INICIO: ANIMACIÓN DE TARJETAS --- */
+
 .card:hover, .chart-container:hover, .history-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3), 0 0 20px rgba(42, 245, 152, 0.3);
@@ -291,15 +289,14 @@ section {
 
 .mission-card, .tool-card {
     animation: fade-in-up 0.6s ease-out forwards;
-    opacity: 0; /* Inicia invisible para la animación */
+    opacity: 0; 
 }
 
-/* Retraso para que no aparezcan todas a la vez */
 .card-grid > .card:nth-child(2) { animation-delay: 0.2s; }
-/* --- FIN: ANIMACIÓN DE TARJETAS --- */
 
 
-/* --- Resto de estilos --- */
+
+
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
 #map-container { height: 60vh; border-radius: 15px; border: 1px solid var(--glass-border); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); }
 #details-card-content h3 { color: var(--primary-green); margin-bottom: 1rem; }
@@ -312,7 +309,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
 .mission-card h4, .tool-card h4 { color: var(--primary-green); margin-bottom: 1rem; }
 .mission-card p, .tool-card p { margin-bottom: 1.5rem; }
 
-/* --- INICIO: ANIMACIÓN DE BOTONES --- */
+
 .cta-button, .btn, button { 
     display: inline-block; 
     background: linear-gradient(45deg, var(--accent-pink), #f5982a); 
@@ -333,14 +330,14 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
 }
 .cta-button:active, .btn:active, button:active {
-    transform: scale(0.98); /* Efecto de presionado */
+    transform: scale(0.98); 
 }
-/* --- FIN: ANIMACIÓN DE BOTONES --- */
+
 
 footer { text-align: center; padding: 2rem; margin-top: 2rem; background: rgba(0,0,0,0.2); }
 
 
-/* --- INICIO: ESTILOS RESPONSIVOS PARA MÓVILES --- */
+ 
 @media (max-width: 768px) {
     nav {
         padding: 0 1rem;
@@ -375,12 +372,12 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background: rgba(0
     }
 
     .hero-text {
-        order: 1; /* Pone el texto primero */
+        order: 1; 
         text-align: center;
     }
 
     .globe-container {
-        order: 2; /* Pone el globo después */
+        order: 2; 
         margin-top: 2rem;
     }
 
@@ -402,13 +399,11 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background: rgba(0
         grid-template-columns: 1fr;
     }
 }
-/* --- FIN: ESTILOS RESPONSIVOS PARA MÓVILES --- */
 
-/* --- INICIO: ESTILOS PÁGINA DE HISTORIAL --- */
 
 .page-section {
     padding-top: calc(var(--header-height) + 3rem);
-    min-height: calc(100vh - var(--header-height) - 100px); /* Asegura que el footer quede abajo */
+    min-height: calc(100vh - var(--header-height) - 100px); 
 }
 
 .history-actions {
@@ -431,7 +426,7 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background: rgba(0
     grid-template-columns: 1fr auto;
     gap: 1rem;
     align-items: center;
-    border-left: 5px solid var(--secondary-blue); /* Indicador visual */
+    border-left: 5px solid var(--secondary-blue); 
     transition: border-color 0.3s ease;
 }
 
@@ -478,9 +473,10 @@ footer { text-align: center; padding: 2rem; margin-top: 2rem; background: rgba(0
     cursor: pointer;
 }
 
-/* --- FIN: ESTILOS PÁGINA DE HISTORIAL --- */
+
 
 .header-logo {
-    height: 60px; /* Ajusta la altura del logo como necesites */
-    margin-left: 3rem; /* Añade un espacio entre el menú y el logo */
+    height: 60px;
+    margin-left: 3rem; 
+
 }
