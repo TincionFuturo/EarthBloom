@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Renderizar las columnas con la información
+ 
     resultsContainer.innerHTML = `
         <div class="analysis-column">
             <h3>${analysis1.locationName}</h3>
@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-    // Renderizar el gráfico de comparación
+ 
     const ctx = document.getElementById('comparisonChart').getContext('2d');
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: analysis1.history.labels, // Asumimos que las etiquetas son las mismas
+            labels: analysis1.history.labels, 
             datasets: [
                 {
                     label: `NDVI - ${analysis1.locationName.substring(0, 20)}...`,
@@ -86,3 +86,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Limpiar los IDs de comparación del localStorage
     localStorage.removeItem('comparisonIds');
 });
+
