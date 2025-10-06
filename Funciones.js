@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // --- CÓDIGO PARA EFECTO PARALLAX ---
+  
   const heroScene = document.querySelector('.hero-scene');
   if (heroScene) {
     const globeContainer = document.querySelector('.globe-container');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- LÓGICA DE MISIONES DIARIAS ---
+  
   function generateDailyMissions() {
     const missionPool = [
       { title: "El Despertar de la Primavera", desc: "Encuentra un área en el hemisferio norte donde el NDVI haya aumentado significativamente en los últimos 3 meses.", lat: 40, lng: -95 },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   generateDailyMissions();
 
-  // --- CÓDIGO DEL MAPA ---
+
   const mapContainer = document.getElementById('map-container');
   if (!mapContainer) return;
 
@@ -307,4 +307,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
 });
