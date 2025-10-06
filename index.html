@@ -5,26 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloomWatch - Monitoreo de Floración Global</title>
 
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Leaflet CSS -->
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
 
-    <!-- Tu hoja de estilos principal -->
+    
     <link rel="stylesheet" href="Diseño.css">
 </head>
 <body>
-    <!-- Contenedor para el fondo de estrellas -->
+    
     <div class="background-container">
         <div class="stars"></div>
         <div class="twinkling"></div>
     </div>
 
-    <!-- Contenedor principal de la página -->
+  
     <div id="page-container">
         <header>
             <nav>
@@ -43,20 +42,20 @@
 
         <main>
             <section id="inicio">
-                <!-- La animación del globo y el título ahora están dentro de un contenedor de escena -->
+              
                 <div class="hero-scene">
                     <div class="globe-container">
                         <div class="globe">
                             <div class="satellite-orbit">
                                 <div class="satellite">
-                                    <!-- SVG DEL SATÉLITE ORIGINAL -->
+                                  
                                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <!-- Paneles Solares -->
+                                        
                                         <rect x="10" y="25" width="20" height="50" rx="3" fill="var(--secondary-blue)"/>
                                         <rect x="70" y="25" width="20" height="50" rx="3" fill="var(--secondary-blue)"/>
-                                        <!-- Cuerpo Principal -->
+                                      
                                         <rect x="40" y="40" width="20" height="20" fill="#E0E0E0"/>
-                                        <!-- Antena -->
+                                      
                                         <path d="M45 60 C 50 70, 55 70, 60 60" stroke="var(--accent-pink)" stroke-width="4" fill="none"/>
                                     </svg>
                                 </div>
@@ -95,13 +94,13 @@
             <section id="misiones">
                 <h2>Misiones de Descubrimiento</h2>
                 <div class="card-grid">
-                    <!-- Misión 1: Contenido dinámico -->
+                  
                     <div class="card mission-card">
                         <h4 id="mission-1-title">Cargando misión...</h4>
                         <p id="mission-1-desc">Las misiones diarias se están generando. Por favor, espera.</p>
                         <button id="mission-1-btn" class="mission-btn" data-lat="0" data-lng="0">Ir a la Zona</button>
                     </div>
-                    <!-- Misión 2: Contenido dinámico -->
+                  
                     <div class="card mission-card">
                         <h4 id="mission-2-title">Cargando misión...</h4>
                         <p id="mission-2-desc">Las misiones diarias se están generando. Por favor, espera.</p>
@@ -130,12 +129,13 @@
         </footer>
     </div>
 
-    <!-- Leaflet JS -->
+  
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     
-    <!-- Tus scripts -->
+   
     <script src="sentinel.js"></script>
     <script src="Funciones.js"></script>
 </body>
+
 </html>
